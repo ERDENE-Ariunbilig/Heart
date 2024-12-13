@@ -67,6 +67,9 @@ var init = function () {
         }
     };
 
+    // COLOR CHANGEEEEE!
+    var particleColor = "#ff008c"; // Hex
+
     var e = [];
     for (i = 0; i < heartPointsCount; i++) {
         var x = rand() * width;
@@ -79,7 +82,7 @@ var init = function () {
             q: ~~(rand() * heartPointsCount),
             D: 2 * (i % 2) - 1,
             force: 0.2 * rand() + 0.7,
-            f: "#8b32a8", // Updated color
+            f: particleColor = "#ffffff",
             trace: []
         };
         for (var k = 0; k < traceCount; k++) e[i].trace[k] = {x: x, y: y};
@@ -130,7 +133,7 @@ var init = function () {
                 N.x -= config.traceK * (N.x - T.x);
                 N.y -= config.traceK * (N.y - T.y);
             }
-            ctx.fillStyle = u.f;
+            ctx.fillStyle = u.f; // Apply the assigned color here
             for (k = 0; k < u.trace.length; k++) {
                 ctx.fillRect(u.trace[k].x, u.trace[k].y, 1, 1);
             }
