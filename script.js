@@ -17,7 +17,9 @@ window.requestAnimationFrame =
                 element.__lastTime = currTime + timeToCall;
             };
         })();
+
 window.isDevice = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(((navigator.userAgent || navigator.vendor || window.opera)).toLowerCase()));
+
 var loaded = false;
 var init = function () {
     if (loaded) return;
@@ -33,9 +35,9 @@ var init = function () {
     ctx.fillRect(0, 0, width, height);
 
     var heartPosition = function (rad) {
-        //return [Math.sin(rad), Math.cos(rad)];
         return [Math.pow(Math.sin(rad), 3), -(15 * Math.cos(rad) - 5 * Math.cos(2 * rad) - 2 * Math.cos(3 * rad) - Math.cos(4 * rad))];
     };
+
     var scaleAndTranslate = function (pos, sx, sy, dx, dy) {
         return [dx + pos[0] * sx, dy + pos[1] * sy];
     };
@@ -77,7 +79,7 @@ var init = function () {
             q: ~~(rand() * heartPointsCount),
             D: 2 * (i % 2) - 1,
             force: 0.2 * rand() + 0.7,
-            f: "hsla(0," + ~~(40 * rand() + 60) + "%," + ~~(60 * rand() + 20) + "%,.3)",
+            f: "#d142f5", // Updated color
             trace: []
         };
         for (var k = 0; k < traceCount; k++) e[i].trace[k] = {x: x, y: y};
